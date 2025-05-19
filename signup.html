@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - AI Driven Career Guidance</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #1a1a2e;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #16213e;
+      padding: 15px;
+    }
+    .navbar a {
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 0 10px;
+      background-color: #0f3460;
+      border: 1px solid #0f3460;
+      border-radius: 5px;
+      color: #ffffff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .navbar a:hover {
+      background-color: #e94560;
+      transform: scale(1.1);
+    }
+    .signup-box {
+      width: 400px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #0f3460;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(51, 54, 122, 0.2);
+      text-align: center;
+    }
+    .signup-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #fff;
+      background-color: #1a1a2e;
+      color: white;
+    }
+    .signup-box button {
+      background-color: #16213e;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .signup-box button:hover {
+      background-color: #e94560;
+    }
+    .footer {
+      text-align: center;
+      background-color: #16213e;
+      color: white;
+      padding: 15px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html">Login</a>  
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="signup-box">
+    <h2>Create an Account</h2>
+    <form id="signupForm">
+      <input type="text" id="firstName" placeholder="First Name" required><br>
+      <input type="text" id="lastName" placeholder="Last Name" required><br>
+      <input type="email" id="email" placeholder="Email" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p style="margin-top: 10px;">Already have an account? <a href="index.html" style="color: #ffffff;">Login</a></p>  <!-- Updated Login link -->
+  </div>
+
+  <div class="footer">
+    &copy; 2025 AI Driven Career Guidance. All rights reserved.
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      var firstName = document.getElementById('firstName').value.trim();
+      var lastName = document.getElementById('lastName').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+
+      var passwordRegex = /^(?=.*\d).{8,}$/; // At least 8 characters, at least one number
+
+      // Form validation
+      if (firstName === '' || lastName === '' || email === '' || password === '' || confirmPassword === '') {
+        alert('Please fill out all fields.');
+        event.preventDefault();  // Prevent form submission if validation fails
+      } else if (!passwordRegex.test(password)) {
+        alert('Password must be at least 8 characters long and contain at least one number.');
+        event.preventDefault();  // Prevent form submission if password is invalid
+      } else if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        event.preventDefault();  // Prevent form submission if passwords don't match
+      } else {
+        // If validation passes, redirect to guidance page
+        event.preventDefault();  // Prevent form submission
+        window.location.href = 'guidance.html'; // Redirect to guidance.html
+      }
+    });
+  </script>
+</body>
+</html>

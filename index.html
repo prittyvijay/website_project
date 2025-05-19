@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Driven Career Guidance</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a2e;
+      color: #e0e0e0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #16213e;
+      padding: 15px;
+    }
+    .navbar a {
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 0 10px;
+      background-color: #0f3460;
+      border: 1px solid #0f3460;
+      border-radius: 5px;
+      color: #ffffff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .navbar a:hover {
+      background-color: #e94560;
+      transform: scale(1.1);
+    }
+    .container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+    }
+    .top-content {
+      text-align: left;
+      padding: 40px 20px;
+      background-color: #0f3460;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      margin: 20px;
+      width: 45%;
+    }
+    .top-content h2 {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+    .top-content p {
+      font-size: 18px;
+      color: #dcdcdc;
+    }
+    .login-box {
+      width: 45%;
+      padding: 20px;
+      background-color: #0f3460;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      text-align: center;
+      color: white;
+      margin-top: 30px;
+    }
+    .login-box input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #fff;
+      background-color: #1a1a2e;
+      color: white;
+    }
+    .login-box button {
+      background-color: #16213e;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .login-box button:hover {
+      background-color: #0f3460;
+    }
+    .forgot-password {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+    .forgot-password a {
+      color: #e94560;
+      text-decoration: none;
+    }
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+    .footer {
+      text-align: center;
+      background-color: #16213e;
+      color: white;
+      padding: 15px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      margin-top: 50px;
+    }
+    .hero-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <!-- Large Image Section -->
+  <div>
+    <img src="iop.jpg" alt="Hero Image" class="hero-image">
+  </div>
+
+  <div class="container">
+    <!-- Written Content Section -->
+    <div class="top-content">
+        <h2>Welcome to AI Driven Career Guidance</h2>
+        <p>Empower your future with personalized career guidance using AI technology. Our platform helps students and professionals discover the best career paths based on their skills, interests, and market demand.</p>
+        <p>Explore career options, get expert advice, and take the first step towards a successful future!</p>
+       <P>Whether you're choosing your next course, exploring potential job roles, or looking for practical advice to enhance your career, our platform is here to guide you every step of the way.</P>
+        <p>Explore career options, get expert advice, and take the first step towards a successful future!</p>
+    </div>
+
+    <!-- Login Form Section -->
+    <div class="login-box">
+      <h3>Login or Sign Up</h3>
+      <form id="loginForm">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required>
+        <div class="forgot-password">
+          <a href="#">Forgot Password?</a>
+        </div>
+        <br>
+
+        <button type="submit">Login</button>
+
+        <p>Don't have an account? <a href="signup.html" style="color: #ffffff;">Sign Up</a></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 AI Driven Career Guidance. All rights reserved.
+  </div>
+
+  <!-- JavaScript for redirection -->
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent default form submission
+
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      // Password must be at least 8 characters and contain at least 1 number
+      var passwordRegex = /^(?=.*\d).{8,}$/;
+
+      if (!passwordRegex.test(password)) {
+        alert('Password must be at least 8 characters long and contain at least one number.');
+      } else {
+        // Redirect to guidance.html after successful validation
+        window.location.href = "guidance.html";
+      }
+    });
+  </script>
+</body>
+</html>
