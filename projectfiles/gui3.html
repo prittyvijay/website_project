@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guidance Page - AI Career Roadmap</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #e0e0e0;
+      background-color: #6d92c1;
+      background-image: url('uy.webp'); /* Background image */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #16213e;
+      padding: 15px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 0 10px;
+      background-color: #1b2735;
+      border: 1px solid #466892;
+      border-radius: 5px;
+      color: #ffffff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #e94560;
+      transform: scale(1.1);
+    }
+
+    .form-container {
+      width: 400px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #0f3460;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #1a1a2e;
+      color: white;
+    }
+
+    .form-group input[type="date"] {
+      padding: 10px;
+    }
+
+    .form-group select {
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      background-color: #e94560;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: block;
+      margin: 20px auto 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #be2f45;
+    }
+
+    .footer {
+      text-align: center;
+      background-color: #6782ce;
+      color: white;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html">Login</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="form-container">
+    <h2>Enter Your Details to Get Your Personalized Roadmap</h2>
+    <form id="roadmapForm" action="output.html" method="POST" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+
+      <div class="form-group">
+        <label for="currentClass">Current Class / Education</label>
+        <select id="currentClass" name="currentClass" required>
+          <option value="">Select Class</option>
+          <option value="8th">8th</option>
+          <option value="9th">9th</option>
+          <option value="10th">10th</option>
+          <option value="11th">11th</option>
+          <option value="12th">12th</option>
+          <option value="graduation">Graduation</option>
+          <option value="postGraduation">Post Graduation</option>
+          <option value="diploma">Diploma Course</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="interest">Area of Interest</label>
+        <select id="interest" name="interest" required>
+          <option value="">Select Interest</option>
+          <option value="science">Science</option>
+          <option value="commerce">Commerce</option>
+          <option value="arts">Arts</option>
+          <option value="technology">Technology</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="skills">Skills</label>
+        <select id="skills" name="skills" required>
+          <option value="">Select Skills</option>
+          <option value="coding">Coding</option>
+          <option value="design">Design</option>
+          <option value="writing">Writing</option>
+          <option value="speaking">Public Speaking</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="hobbies">Hobbies</label>
+        <select id="hobbies" name="hobbies" required>
+          <option value="">Select Hobbies</option>
+          <option value="reading">Reading</option>
+          <option value="music">Music</option>
+          <option value="sports">Sports</option>
+          <option value="gaming">Gaming</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="resume">If you have a resume, upload it here (Optional)</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+
+    </form>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 AI Driven Career Guidance. All rights reserved.
+  </div>
+
+  <script>
+    document.getElementById('roadmapForm').addEventListener('submit', function(event) {
+      var name = document.getElementById('name').value.trim();
+      var dob = document.getElementById('dob').value;
+      var currentClass = document.getElementById('currentClass').value;
+      var interest = document.getElementById('interest').value;
+      var skills = document.getElementById('skills').value;
+      var hobbies = document.getElementById('hobbies').value;
+
+      if (name === '') {
+        alert('Please enter your full name.');
+        event.preventDefault();
+        return;
+      }
+      if (dob === '') {
+        alert('Please select your date of birth.');
+        event.preventDefault();
+        return;
+      }
+      if (currentClass === '') {
+        alert('Please select your current class or education.');
+        event.preventDefault();
+        return;
+      }
+      if (interest === '') {
+        alert('Please select your area of interest.');
+        event.preventDefault();
+        return;
+      }
+      if (skills === '') {
+        alert('Please select your skills.');
+        event.preventDefault();
+        return;
+      }
+      if (hobbies === '') {
+        alert('Please select your hobbies.');
+        event.preventDefault();
+        return;
+      }
+
+      alert('Form submitted successfully!');
+    });
+  </script>
+
+</body>
+</html>
