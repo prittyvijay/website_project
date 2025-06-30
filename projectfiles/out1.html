@@ -7,38 +7,32 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-image: url('iop.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
       margin: 0;
       padding: 0;
       color: #e0e0e0;
+      background: url('iop.jpg') no-repeat center center fixed;
+      background-size: cover;
       backdrop-filter: brightness(0.7);
     }
-
     .navbar {
       display: flex;
       justify-content: center;
       background-color: rgba(15, 52, 96, 0.95);
       padding: 15px;
     }
-
     .navbar a {
       text-decoration: none;
       padding: 12px 20px;
       margin: 0 10px;
-      background-color: #4e73a0 ;
+      background-color: #4e73a0;
       border-radius: 5px;
       color: #ffffff;
       font-weight: bold;
       transition: 0.3s;
     }
-
     .navbar a:hover {
       background-color: #e94560;
     }
-
     .container {
       max-width: 800px;
       margin: 40px auto;
@@ -47,28 +41,24 @@
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
-
     h1 {
       text-align: center;
       color: #ffffff;
     }
-
     .section {
       margin-bottom: 25px;
       border-left: 4px solid #e94560;
       padding-left: 15px;
     }
-
     .section h3 {
-      margin-bottom: 10px;
       color: #e94560;
+      margin-bottom: 10px;
     }
-
-    .section p {
+    .section p,
+    .section li {
       margin: 0;
       line-height: 1.6;
     }
-
     .footer {
       text-align: center;
       background-color: rgba(22, 33, 62, 0.9);
@@ -89,28 +79,61 @@
     <h1>Career Guidance</h1>
 
     <div class="section">
-      <h3> Academic Roadmap</h3>
-      <p>Guidance for selecting +2 stream, graduation path, and higher studies tailored to your interests and skills.</p>
+      <h3>Academic Roadmap</h3>
+      <p id="academicRoadmap"></p>
     </div>
 
     <div class="section">
-      <h3> Area Must Focus</h3>
-      <p>- Technical communication skills<br>- Logical reasoning and analytical skills<br>- Subject expertise in chosen domain</p>
+      <h3>Areas to Focus</h3>
+      <ul id="focusAreas"></ul>
     </div>
 
     <div class="section">
-      <h3>Recommended Job Designation</h3>
-      <p>- Data Analyst<br>- UI/UX Designer<br>- AI/ML Engineer<br>- Content Strategist<br>- Software Developer</p>
+      <h3>Recommended Job Designations</h3>
+      <ul id="jobDesignations"></ul>
     </div>
 
     <div class="section">
-      <h3> Additional Advices</h3>
-      <p>- Build a strong LinkedIn profile<br>- Participate in internships and hackathons<br>- Follow career mentors and role models<br>- Keep learning and upskilling online</p>
+      <h3>Additional Advice</h3>
+      <ul id="additionalAdvice"></ul>
     </div>
   </div>
 
   <div class="footer">
     &copy; 2025 AI Driven Career Guidance. All rights reserved.
   </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("recommendationData"));
+    console.log("Loaded data from localStorage:", data);
+
+    if (data) {
+      // Academic Roadmap
+      document.getElementById("academicRoadmap").textContent = data.academicRoadmap;
+
+      // Focus Areas
+      data.focusAreas.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        document.getElementById("focusAreas").appendChild(li);
+      });
+
+      // Job Designations
+      data.jobDesignations.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        document.getElementById("jobDesignations").appendChild(li);
+      });
+
+      // Additional Advice
+      data.additionalAdvice.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        document.getElementById("additionalAdvice").appendChild(li);
+      });
+    } else {
+      document.querySelector(".container").innerHTML += `<p style="color:red;">No recommendation data found. Please go back and fill the form again.</p>`;
+    }
+  </script>
 </body>
 </html>

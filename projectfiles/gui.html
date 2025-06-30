@@ -146,8 +146,7 @@
 
   <div class="form-container">
     <h2>Enter Your Details to Get Your Personalized Roadmap</h2>
-    <form id="roadmapForm" action="output.html" method="POST" enctype="multipart/form-data">
-
+    <form id="roadmapForm">
       <div class="form-group">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -220,46 +219,48 @@
   </div>
 
   <script>
-    document.getElementById('roadmapForm').addEventListener('submit', function(event) {
-      var name = document.getElementById('name').value.trim();
-      var dob = document.getElementById('dob').value;
-      var currentClass = document.getElementById('currentClass').value;
-      var interest = document.getElementById('interest').value;
-      var skills = document.getElementById('skills').value;
-      var hobbies = document.getElementById('hobbies').value;
+    document.getElementById('roadmapForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
 
-      if (name === '') {
-        alert('Please enter your full name.');
-        event.preventDefault();
-        return;
-      }
-      if (dob === '') {
-        alert('Please select your date of birth.');
-        event.preventDefault();
-        return;
-      }
-      if (currentClass === '') {
-        alert('Please select your current class or education.');
-        event.preventDefault();
-        return;
-      }
-      if (interest === '') {
-        alert('Please select your area of interest.');
-        event.preventDefault();
-        return;
-      }
-      if (skills === '') {
-        alert('Please select your skills.');
-        event.preventDefault();
-        return;
-      }
-      if (hobbies === '') {
-        alert('Please select your hobbies.');
-        event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const dob = document.getElementById('dob').value;
+      const currentClass = document.getElementById('currentClass').value;
+      const interest = document.getElementById('interest').value;
+      const skills = document.getElementById('skills').value;
+      const hobbies = document.getElementById('hobbies').value;
+
+      if (!name || !dob || !currentClass || !interest || !skills || !hobbies) {
+        alert("Please fill in all fields.");
         return;
       }
 
-      alert('Form submitted successfully!');
+      try {
+        const res = await fetch("http://localhost:5000/api/roadmap", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name,
+            dob,
+            currentClass,
+            interest,
+            skills,
+            hobbies
+          })
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          alert("Roadmap saved successfully!");
+          window.location.href = "output.html"; // redirect after success
+        } else {
+          alert("Failed to save roadmap.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Server error. Check if backend is running.");
+      }
     });
   </script>
 </body>

@@ -19,7 +19,7 @@
       display: flex;
       justify-content: space-between; /* Changed from center to space-between */
       align-items: center;
-      background-color: rgba(15, 52, 96, 0.95);
+      background-color: #e2d8c0;
       padding: 15px 30px;
     }
 
@@ -33,7 +33,7 @@
       text-decoration: none;
       padding: 12px 20px;
       margin: 0 5px;
-      background-color: #4e73a0;
+      background-color: #090909;
       border: 1px solid #b12b9d;
       border-radius: 5px;
       color: #ffffff;
@@ -147,10 +147,7 @@
     }
     #ll{
      font-size: xx-large;
-     color: white;
-     font-family:Georgia, 'Times New Roman', Times, serif;
-     padding-left: 43px;
-    
+     
     }
 
     .login-box button {
@@ -199,7 +196,7 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact Us</a>
-      <div id="ll">Career Guidance for bright future.....<style></style></div>
+      <div id="ll">Career Guidance for bright future</div>
     </div>
     <div class="social-icons">
       <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" title="Facebook">
@@ -244,7 +241,7 @@
         <br>
 
         <button type="submit">Login</button>
-        <p>Don't have an account? <a href="sign3.html" style="color: #ffffff;">Sign Up</a></p>
+        <p>Don't have an account? <a href="sign2.html" style="color: #ffffff;">Sign Up</a></p>
       </form>
     </div>
   </div>
@@ -256,23 +253,51 @@
 
   <!-- JavaScript -->
   <script>
-    const lines = [
-      "Welcome to AI Driven Career Guidance – your smart companion for making bold career decisions.",
-      "Leverage the power of Artificial Intelligence to unlock paths that align with your dreams and skills.",
-      "Whether you're a student or a professional, our platform helps you explore a world of career opportunities tailored just for you.",
-      "Understand your strengths, passions, and market trends to make informed, fulfilling choices.",
-      "With expert insights and intelligent suggestions, take confident steps toward a brighter and purposeful future."
-    ];
+  // TYPEWRITER EFFECT
+  const lines = [
+    "Welcome to AI Driven Career Guidance – your smart companion for making bold career decisions.",
+    "Leverage the power of Artificial Intelligence to unlock paths that align with your dreams and skills.",
+    "Whether you're a student or a professional, our platform helps you explore a world of career opportunities tailored just for you.",
+    "Understand your strengths, passions, and market trends to make informed, fulfilling choices.",
+    "With expert insights and intelligent suggestions, take confident steps toward a brighter and purposeful future."
+  ];
 
-    const container = document.getElementById('typewriter');
+  const container = document.getElementById('typewriter');
 
-    lines.forEach((line, index) => {
-      const p = document.createElement('p');
-      p.classList.add('line');
-      p.style.animationDelay = `${index * 1.5}s`;
-      p.textContent = line;
-      container.appendChild(p);
-    });
-  </script>
+  lines.forEach((line, index) => {
+    const p = document.createElement('p');
+    p.classList.add('line');
+    p.style.animationDelay = `${index * 1.5}s`;
+    p.textContent = line;
+    container.appendChild(p);
+  });
+
+  // LOGIN FORM SUBMIT
+  document.getElementById("loginForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+      alert(data.message);
+
+      if (response.ok) {
+        window.location.href = "gui.html"; // redirect on successful login
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error connecting to server. Please try again later.");
+    }
+  });
+</script>
+
 </body>
 </html>

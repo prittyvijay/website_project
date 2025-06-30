@@ -89,28 +89,71 @@
     <h1>Career Guidance</h1>
 
     <div class="section">
+      <h3>Personal Details</h3>
+      <p id="userDetails">Loading...</p>
+    </div>
+
+    <div class="section">
       <h3> Academic Roadmap</h3>
-      <p>Guidance for selecting +2 stream, graduation path, and higher studies tailored to your interests and skills.</p>
+      <p id="academicRoadmap">Loading...</p>
     </div>
 
     <div class="section">
-      <h3> Area Must Focus</h3>
-      <p>- Technical communication skills<br>- Logical reasoning and analytical skills<br>- Subject expertise in chosen domain</p>
+      <h3> Recommended Job Designation</h3>
+      <p id="recommendations">Loading...</p>
     </div>
 
     <div class="section">
-      <h3>Recommended Job Designation</h3>
-      <p>- Data Analyst<br>- UI/UX Designer<br>- AI/ML Engineer<br>- Content Strategist<br>- Software Developer</p>
-    </div>
-
-    <div class="section">
-      <h3> Additional Advices</h3>
-      <p>- Build a strong LinkedIn profile<br>- Participate in internships and hackathons<br>- Follow career mentors and role models<br>- Keep learning and upskilling online</p>
+      <h3> Additional Advice</h3>
+      <p id="advice">Loading...</p>
     </div>
   </div>
 
   <div class="footer">
     &copy; 2025 AI Driven Career Guidance. All rights reserved.
   </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/roadmap/latest");
+        if (!res.ok) throw new Error("Failed to fetch roadmap data.");
+        const data = await res.json();
+
+        document.getElementById("userDetails").innerHTML = `
+          <strong>Name:</strong> ${data.name}<br>
+          <strong>DOB:</strong> ${data.dob}<br>
+          <strong>Class:</strong> ${data.currentClass}<br>
+          <strong>Interest:</strong> ${data.interest}<br>
+          <strong>Skills:</strong> ${data.skills}<br>
+          <strong>Hobbies:</strong> ${data.hobbies}
+        `;
+
+        document.getElementById("academicRoadmap").innerHTML = `
+          Based on your interest in <b>${data.interest}</b> and skills in <b>${data.skills}</b>,
+          you can pursue <b>${data.currentClass}</b> followed by relevant degrees and certifications.
+        `;
+
+        document.getElementById("recommendations").innerHTML = `
+          Here are some roles you could consider based on your skills and hobbies:
+          <ul>
+            <li>${data.skills} Expert</li>
+            <li>${data.interest} Researcher</li>
+            <li>Project Coordinator</li>
+          </ul>
+        `;
+
+        document.getElementById("advice").innerHTML = `
+          - Keep improving your ${data.skills} skills<br>
+          - Join online communities related to ${data.interest}<br>
+          - Practice teamwork and communication<br>
+          - Work on personal projects related to ${data.hobbies}
+        `;
+      } catch (err) {
+        console.error(err);
+        document.querySelector(".container").innerHTML = "<h2>Could not load recommendations. Please try again later.</h2>";
+      }
+    });
+  </script>
 </body>
 </html>

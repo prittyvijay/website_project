@@ -124,32 +124,53 @@
   <div class="footer">
     &copy; 2025 AI Driven Career Guidance. All rights reserved.
   </div>
+<script>
+  document.getElementById('signupForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
 
-  <script>
-    document.getElementById('signupForm').addEventListener('submit', function(event) {
-      var firstName = document.getElementById('firstName').value.trim();
-      var lastName = document.getElementById('lastName').value.trim();
-      var email = document.getElementById('email').value.trim();
-      var password = document.getElementById('password').value;
-      var confirmPassword = document.getElementById('confirmPassword').value;
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
 
-      var passwordRegex = /^(?=.*\d).{8,}$/;
+    var passwordRegex = /^(?=.*\d).{8,}$/;
 
-      if (!firstName || !lastName || !email || !password || !confirmPassword) {
-        alert('Please fill out all fields.');
-        event.preventDefault();
-      } else if (!passwordRegex.test(password)) {
-        alert('Password must be at least 8 characters long and contain at least one number.');
-        event.preventDefault();
-      } else if (password !== confirmPassword) {
-        alert('Passwords do not match.');
-        event.preventDefault();
-      } else {
-        event.preventDefault();
-        window.location.href = 'guidance.html';
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+      alert('Please fill out all fields.');
+    } else if (!passwordRegex.test(password)) {
+      alert('Password must be at least 8 characters long and contain at least one number.');
+    } else if (password !== confirmPassword) {
+      alert('Passwords do not match.');
+    } else {
+      // backend POST logic
+      var fullName = firstName + " " + lastName;
+
+      try {
+        const response = await fetch("http://localhost:5000/api/auth/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: fullName,
+            email: email,
+            password: password
+          })
+        });
+
+        const data = await response.json();
+        alert(data.message);
+
+        if (response.ok) {
+          window.location.href = 'gui.html'; // redirect if signup success
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Error connecting to server. Please try again later.");
       }
-    });
-  </script>
+    }
+  });
+</script>
+
 
 </body>
 </html>
