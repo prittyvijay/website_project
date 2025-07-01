@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Driven Career Guidance</title>
+  <title>Sign Up - AI Driven Career Guidance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rubik:wght@500&family=Poppins:wght@400;600&display=swap');
-
-    body {
+ 
+     body {
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
@@ -72,88 +72,40 @@
       height: 24px;
     }
 
-    .hero-section {
-      position: relative;
-      width: 100%;
-      height: 420px;
 
-      
-      overflow: hidden;
-    }
 
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.5);
-    }
-
-    .typewriter-text {
-      position: absolute;
-      top: 15%;
-      left: 5%;
-      right: 5%;
-      color: #fff;
-      font-family: italic;
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 1.6;
-      max-width: 90%;
-      z-index: 1;
-    }
-
-    .line {
-      opacity: 0;
-      animation: fadeInUp 1s forwards;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      padding: 20px;
-      gap: 20px;
-    }
-
-    .login-box {
-      width: 45%;
-      padding: 20px;
-      background-color: #657384;
+    .signup-box {
+      width: 400px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: rgba(15, 52, 96, 0.9);
       border-radius: 10px;
-      box-shadow: 0 0 15px #303234;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
       text-align: center;
-      color: white;
-      margin-top: 30px;
     }
 
-    .login-box input {
-      width: 80%;
+    .signup-box h2 {
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .signup-box input {
+      width: 90%;
       padding: 10px;
       margin: 10px 0;
       border-radius: 5px;
       border: 1px solid #fff;
-      background-color: #16161b;
+      background-color: rgba(26, 26, 46, 0.8);
       color: white;
     }
-    #ll{
-     font-size: xx-large;
-     
+
+    .signup-box input::placeholder {
+      color: #ccc;
     }
 
-    .login-box button {
-      background-color: #09173c;
+    .signup-box button {
+      background-color: #16213e;
       color: white;
       padding: 10px 20px;
       border: none;
@@ -162,23 +114,8 @@
       transition: 0.3s;
     }
 
-    .login-box button:hover {
-      background-color: #47b47c;
-    }
-
-    .forgot-password {
-      display: block;
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    .forgot-password a {
-      color: #e94560;
-      text-decoration: none;
-    }
-
-    .forgot-password a:hover {
-      text-decoration: underline;
+    .signup-box button:hover {
+      background-color: #e94560;
     }
 
     .footer {
@@ -188,12 +125,14 @@
       padding: 15px;
       margin-top: 50px;
     }
+
+    a {
+      color: #ffffff;
+    }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <div class="navbar">
+ <div class="navbar">
     <div class="navbar-left">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -221,85 +160,70 @@
     </div>
   </div>
 
-  <!-- Hero Image with Typewriter Text -->
-  <div class="hero-section">
-    <img src="iop.jpg" alt="Hero Image" class="hero-image" />
-    <div class="typewriter-text" id="typewriter"></div>
+
+  <div class="signup-box">
+    <h2>Create an Account</h2>
+    <form id="signupForm">
+      <input type="text" id="firstName" placeholder="First Name" required><br>
+      <input type="text" id="lastName" placeholder="Last Name" required><br>
+      <input type="email" id="email" placeholder="Email" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p style="margin-top: 10px;">Already have an account? <a href="index.html">Login</a></p>
   </div>
 
-  <!-- Login Section -->
-  <div class="container">
-    <div class="login-box">
-      <h3>Login or Sign Up</h3>
-      <form id="loginForm">
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required>
-        <div class="forgot-password">
-          <a href="#">Forgot Password?</a>
-        </div>
-        <br>
-
-        <button type="submit">Login</button>
-        <p>Don't have an account? <a href="sign2.html" style="color: #ffffff;">Sign Up</a></p>
-      </form>
-    </div>
-  </div>
-
-  <!-- Footer -->
   <div class="footer">
     &copy; 2025 AI Driven Career Guidance. All rights reserved.
   </div>
+<script>
+  document.getElementById('signupForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
 
-  <!-- JavaScript -->
-  <script>
-  // TYPEWRITER EFFECT
-  const lines = [
-    "Welcome to AI Driven Career Guidance – your smart companion for making bold career decisions.",
-    "Leverage the power of Artificial Intelligence to unlock paths that align with your dreams and skills.",
-    "Whether you're a student or a professional, our platform helps you explore a world of career opportunities tailored just for you.",
-    "Understand your strengths, passions, and market trends to make informed, fulfilling choices.",
-    "With expert insights and intelligent suggestions, take confident steps toward a brighter and purposeful future."
-  ];
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
 
-  const container = document.getElementById('typewriter');
+    var passwordRegex = /^(?=.*\d).{8,}$/;
 
-  lines.forEach((line, index) => {
-    const p = document.createElement('p');
-    p.classList.add('line');
-    p.style.animationDelay = `${index * 1.5}s`;
-    p.textContent = line;
-    container.appendChild(p);
-  });
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+      alert('Please fill out all fields.');
+    } else if (!passwordRegex.test(password)) {
+      alert('Password must be at least 8 characters long and contain at least one number.');
+    } else if (password !== confirmPassword) {
+      alert('Passwords do not match.');
+    } else {
+      // backend POST logic
+      var fullName = firstName + " " + lastName;
 
-  // LOGIN FORM SUBMIT
-  document.getElementById("loginForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+      try {
+        const response = await fetch("http://localhost:5000/api/auth/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: fullName,
+            email: email,
+            password: password
+          })
+        });
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+        const data = await response.json();
+        alert(data.message);
 
-    try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-      });
-
-      const data = await response.json();
-      alert(data.message);
-
-      if (response.ok) {
-        window.location.href = "gui.html"; // redirect on successful login
+        if (response.ok) {
+          window.location.href = 'gui.html'; // redirect if signup success
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Error connecting to server. Please try again later.");
       }
-    } catch (err) {
-      console.error(err);
-      alert("Error connecting to server. Please try again later.");
     }
   });
 </script>
+
 
 </body>
 </html>

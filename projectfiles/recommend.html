@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Recommendation</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('iop.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      color: #e0e0e0;
+      backdrop-filter: brightness(0.7);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(15, 52, 96, 0.95);
+      padding: 15px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 0 10px;
+      background-color: #4e73a0 ;
+      border-radius: 5px;
+      color: #ffffff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #e94560;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: rgba(45, 49, 71, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .section {
+      margin-bottom: 25px;
+      border-left: 4px solid #e94560;
+      padding-left: 15px;
+    }
+
+    .section h3 {
+      margin-bottom: 10px;
+      color: #e94560;
+    }
+
+    .section p {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      background-color: rgba(22, 33, 62, 0.9);
+      color: white;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="index.html">Login</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="container">
+    <h1>Career Guidance for <span id="username">Student</span></h1>
+
+    <div class="section">
+      <h3> Academic Roadmap</h3>
+      <p>Guidance for selecting +2 stream, graduation path, and higher studies tailored to your interests and skills.</p>
+    </div>
+
+    <div class="section">
+      <h3> Area Must Focus</h3>
+      <p>- Technical communication skills<br>- Logical reasoning and analytical skills<br>- Subject expertise in chosen domain</p>
+    </div>
+
+    <div class="section">
+      <h3>Recommended Job Designation</h3>
+      <p id="jobRecommendation"></p>
+    </div>
+
+    <div class="section">
+      <h3> Additional Advices</h3>
+      <p>- Build a strong LinkedIn profile<br>- Participate in internships and hackathons<br>- Follow career mentors and role models<br>- Keep learning and upskilling online</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 AI Driven Career Guidance. All rights reserved.
+  </div>
+
+  <script>
+    // get user data saved in localStorage from gui.html
+    const userData = JSON.parse(localStorage.getItem("roadmapData"));
+    const username = userData?.name || "Student";
+    document.getElementById("username").textContent = username;
+
+    // simple rule-based recommendation
+    let recommendation = "Software Developer"; // default
+
+    if (userData) {
+      if (userData.interest === "science" && userData.skills === "coding") {
+        recommendation = "AI/ML Engineer";
+      } else if (userData.interest === "commerce" && userData.skills === "speaking") {
+        recommendation = "Business Analyst";
+      } else if (userData.interest === "arts" && userData.skills === "design") {
+        recommendation = "UI/UX Designer";
+      } else if (userData.interest === "technology" && userData.skills === "coding") {
+        recommendation = "Full-Stack Developer";
+      } else if (userData.skills === "writing") {
+        recommendation = "Content Strategist";
+      }
+    }
+
+    document.getElementById("jobRecommendation").textContent = recommendation;
+  </script>
+</body>
+</html>
