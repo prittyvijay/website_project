@@ -1,0 +1,26 @@
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{0}: checkout: moving from newfiles to main
+[33m2387684[m[33m ([m[1;32mnewfiles[m[33m)[m HEAD@{1}: commit: Final commit: pushed all recent changes
+[33m3a86998[m[33m ([m[1;31morigin/newfiles[m[33m)[m HEAD@{2}: commit: Added new files to newfiles branch
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{3}: checkout: moving from main to newfiles
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{4}: checkout: moving from main to main
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{5}: checkout: moving from feature/contact-form to main
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{6}: checkout: moving from feature/list-upload to feature/contact-form
+[33m47db1d6[m[33m ([m[1;31morigin/feature/list-upload[m[33m, [m[1;32mfeature/list-upload[m[33m)[m HEAD@{7}: commit: Added list2.pdf to feature/list-upload branch
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{8}: checkout: moving from main to feature/list-upload
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{9}: checkout: moving from feature/contact-form to main
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{10}: checkout: moving from main to feature/contact-form
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{11}: checkout: moving from feature/about-page to main
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{12}: checkout: moving from main to feature/about-page
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{13}: checkout: moving from main to main
+[33mc822ff3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/about-page[m[33m, [m[1;32mfeature/about-page[m[33m)[m HEAD@{14}: commit (merge): Your description of what changed
+[33m1a0bdde[m HEAD@{15}: Branch: renamed refs/heads/main to refs/heads/main
+[33m1a0bdde[m HEAD@{17}: commit: Initial commit with backend and frontend
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{18}: Branch: renamed refs/heads/feature/dashboard to refs/heads/main
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{20}: checkout: moving from main to feature/dashboard
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{21}: checkout: moving from feature/dashboard to main
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{22}: checkout: moving from main to feature/dashboard
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{23}: checkout: moving from master to main
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{24}: checkout: moving from main to master
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{25}: checkout: moving from feature/login-form to main
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{26}: checkout: moving from feature/contact-form to feature/login-form
+[33m6b8b759[m[33m ([m[1;31morigin/feature/contact-form[m[33m, [m[1;32mmaster[m[33m, [m[1;32mfeature/contact-form[m[33m)[m HEAD@{27}: commit (initial): added contact form feature
